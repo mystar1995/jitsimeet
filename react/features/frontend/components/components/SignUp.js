@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 //import {AUTH_USER,USER_REGISTER} from '../redux/constant';
 import toastr from 'toastr';
 import { Link } from 'react-router-dom';
+import * as API from '../api/Apiservice';
 class Signup extends React.Component
 {
     constructor(props)
@@ -27,6 +28,17 @@ class Signup extends React.Component
         const {dispatch} = this.props;
         if(this.state.password == this.state.rpassword)
         {
+            let userinfo = {email:this.state.email,password:this.state.password,fullname:this.state.fullname};
+            API.register(userinfo).then(res=>{
+                if(res.data.success)
+                {
+                    this.props.history.push('/signin');
+                }
+                else
+                {
+                    toastr.error(res.data.message);
+                }
+            })
            // dispatch({type:USER_REGISTER,user:{email:this.state.email,password:this.state.password,fullname:this.state.fullname},success:()=>this.props.history.push('/signin'),error:(message)=>toastr.error(message)})
         }
         else

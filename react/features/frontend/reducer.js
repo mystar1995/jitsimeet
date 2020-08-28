@@ -1,7 +1,7 @@
 // @flow
 
 import { PersistenceRegistry, ReducerRegistry, set } from '../base/redux';
-
+import './components/reducer';
 import {
     SET_SIDEBAR_VISIBLE,
     SET_WELCOME_PAGE_LISTS_DEFAULT_PAGE
@@ -11,7 +11,7 @@ import {
  * The name of the redux store/state property which is the root of the redux
  * state of the feature {@code welcome}.
  */
-const STORE_NAME = 'features/welcome';
+const STORE_NAME = 'features/frontend';
 
 /**
  * Sets up the persistence of the feature {@code welcome}.

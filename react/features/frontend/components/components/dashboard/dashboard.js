@@ -130,8 +130,8 @@ class Dashboard extends React.Component
 }
 
 const mapstatetoprops = (state) => ({
-    auth:state.auth?state.auth:{userinfo:{}},
-    conference:state.conference
+    auth:state['feature/frontend/auth'],
+    conference:state['feature/frontend/conference']
 })
 
 export default connect(mapstatetoprops)(Dashboard);

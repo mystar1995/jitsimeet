@@ -12,7 +12,7 @@ class Header extends React.Component
 
     render()
     {
-        //let {auth} = this.props;
+        let {auth} = this.props;
         
         return (
             <div className="header">
@@ -36,7 +36,7 @@ class Header extends React.Component
 }
 
 const mapstatetoprops = (state) => ({
-    auth:state.auth
+    auth:state['feature/frontend/auth']
 })
 
 export default connect(mapstatetoprops)(Header);

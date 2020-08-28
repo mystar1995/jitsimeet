@@ -2,7 +2,9 @@ import React from 'react';
 import {Container, Row,Col,Input, Form, FormGroup,Button} from 'reactstrap';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import toastr from 'toastr';
+import * as Api from '../api/Apiservice';
+import { AUTH_USER } from '../reducer/actionstype';
 class Signin extends React.Component
 {
     constructor(props)
@@ -21,9 +23,20 @@ class Signin extends React.Component
     }
 
     handlesubmit = (e) => {
-        // const {dispatch} = this.props;
-        // dispatch({type:AUTH_USER,user:{email:this.state.email,password:this.state.password},success:()=>this.props.history.push('/meetyx'),error:(message)=>alert(message)})
-        // e.preventDefault();
+        const {dispatch} = this.props;
+        Api.login({email:this.state.email,password:this.state.password}).then(result=>{
+            if(result.data.success)
+            {
+                window.localStorage.setItem("userinfo",JSON.stringify(result.data.userinfo));
+                dispatch({type:AUTH_USER,userinfo:result.data.userinfo});
+                this.props.history.push('/meetyx');
+            }
+            else
+            {
+                toastr.error(result.data.message);
+            }
+        })
+        e.preventDefault();
     }
 
     render()

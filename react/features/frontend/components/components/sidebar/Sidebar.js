@@ -13,7 +13,9 @@ class Sidebar extends React.Component
     logout = () => {
         let {dispatch} = this.props;
         console.log(this.props);
-        //dispatch({type:LOGOUT,next:()=>window.location.href = "/signin"});
+        window.localStorage.removeItem("userinfo");
+        dispatch({type:LOGOUT});
+        this.props.history.push('/signin');
     }
 
     render()
@@ -43,7 +45,7 @@ class Sidebar extends React.Component
 }
 
 const mapstatetoprops = (state) => ({
-    auth:state.auth?state.auth:{userinfo:{}}
+    auth:state.auth['feature/frontend/auth']
 })
 
 export default connect(mapstatetoprops)(Sidebar);

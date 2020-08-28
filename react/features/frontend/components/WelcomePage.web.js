@@ -17,6 +17,7 @@ import {Route,Router,Switch,BrowserRouter,withRouter} from 'react-router-dom';
 
 import { AbstractWelcomePage, _mapStateToProps } from './AbstractWelcomePage';
 import Tabs from './Tabs';
+import 'toastr/build/toastr.css';
 
 /**
  * The pattern used to validate room name.

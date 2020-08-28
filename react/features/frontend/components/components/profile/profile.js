@@ -6,6 +6,8 @@ import config from '../../config';
 import toastr from 'toastr';
 //import {UPDATE_PROFILE} from '../../redux/constant';
 import {withRouter} from 'react-router-dom';
+import * as Api from '../../api/Apiservice';
+import { UPDATE_PROFILE } from '../../reducer/actionstype';
 
 class Profile extends React.Component
 {
@@ -121,6 +123,16 @@ class Profile extends React.Component
                 userinfo.photo = this.state.imagefile;
             }
 
+            Api.updateprofile(userinfo).then(res=>{
+                if(res.data.success)
+                {
+                    dispatch({type:UPDATE_PROFILE,userinfo:res.data.userinfo});
+                    this.setState({
+                        edit:false
+                    });
+                }
+            })
+            
             //dispatch({type:UPDATE_PROFILE,userinfo:userinfo,next:()=>{this.setState({edit:false});this.updateinfo = false;},error:(message)=>toastr.error(message)});
 
         }
@@ -242,7 +254,7 @@ class Profile extends React.Component
 }
 
 const mapstatetoprops = (state) => ({
-    auth:state.auth?state.auth:{userinfo:{}}
+    auth:state.auth['feature/frontend/auth']
 })
 
 export default connect(mapstatetoprops)(withRouter(Profile));
