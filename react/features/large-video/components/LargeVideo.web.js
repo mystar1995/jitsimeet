@@ -68,10 +68,8 @@ class LargeVideo extends Component<Props> {
         return (
             <div
                 className = { className }
-                id = 'largeVideoContainer'
-                style = { style }>
+                id = 'largeVideoContainer'>
                 <Subject />
-                <InviteMore />
                 <div id = 'sharedVideo'>
                     <div id = 'sharedVideoIFrame' />
                 </div>
