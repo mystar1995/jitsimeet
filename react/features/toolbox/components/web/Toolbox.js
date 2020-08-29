@@ -12,7 +12,7 @@ import { openDialog, toggleDialog } from '../../../base/dialog';
 import { isMobileBrowser } from '../../../base/environment/utils';
 import { translate } from '../../../base/i18n';
 import { getParticipantCount } from '../../../base/participants/functions';
-import ParticipantCount from '../../../conference/component/web/ParticipantsCount';
+import ParticipantCount from '../../../conference/components/web/ParticipantsCount';
 import {
     IconChat,
     IconCodeBlock,
@@ -1316,7 +1316,7 @@ class Toolbox extends Component<Props, State> {
                     
                 </div>
                 <div className = 'button-group-right'>
-                    <ParticipantsCount/>
+                    <ParticipantCount/>
                     <div className = 'toolbar-button-with-badge'>
                         <ToolbarImageButton
                             accessibilityLabel = { t('toolbar.accessibilityLabel.chat') }
