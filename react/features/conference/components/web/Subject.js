@@ -7,7 +7,7 @@ import { getParticipantCount } from '../../../base/participants/functions';
 import { connect } from '../../../base/redux';
 import { isToolboxVisible } from '../../../toolbox/functions.web';
 import ConferenceTimer from '../ConferenceTimer';
-
+import {TileViewButton} from '../../../video-layout';
 import ParticipantsCount from './ParticipantsCount';
 
 /**
@@ -52,7 +52,9 @@ class Subject extends Component<Props> {
             <div className = { `subject ${_visible ? 'visible' : ''}` }>
                 <img src='/images/icon/Settings.png'/>
                 <span className = 'subject-text'>{ _subject }</span>
-                { _showParticipantCount && <ParticipantsCount /> }
+                <div style={{marginLeft:'auto'}}>
+                    <TileViewButton></TileViewButton>
+                </div>
                 <ConferenceTimer />
             </div>
         );
