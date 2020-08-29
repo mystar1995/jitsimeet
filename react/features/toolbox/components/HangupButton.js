@@ -64,17 +64,6 @@ class HangupButton extends AbstractHangupButton<Props, *> {
     _doHangup() {
         this._hangup();
     }
-
-    render()
-    {
-        return (
-            <div className="toolbox-icon" onClick={this._doHangup}>
-                <div className="jitsi-icon">
-                    <img src="/images/icon/phone.png"/>
-                </div>
-            </div>
-        )
-    }
 }
 
 export default translate(connect()(HangupButton));
