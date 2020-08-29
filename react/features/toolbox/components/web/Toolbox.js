@@ -1316,7 +1316,10 @@ class Toolbox extends Component<Props, State> {
                     
                 </div>
                 <div className = 'button-group-right'>
-                    <ParticipantCount/>
+                    <div>
+                        <img src="/images/icon/group.png"/>
+                        <span style={{position:'absolute',color:'white',top:-10}}>{this.props.count}</span>
+                    </div>
                     <div className = 'toolbar-button-with-badge'>
                         <ToolbarImageButton
                             accessibilityLabel = { t('toolbar.accessibilityLabel.chat') }
@@ -1413,7 +1416,8 @@ function _mapStateToProps(state) {
             || sharedVideoStatus === 'start'
             || sharedVideoStatus === 'pause',
         _visible: isToolboxVisible(state),
-        _visibleButtons: equals(visibleButtons, buttons) ? visibleButtons : buttons
+        _visibleButtons: equals(visibleButtons, buttons) ? visibleButtons : buttons,
+        count: getParticipantCount(state)
     };
 }
 
