@@ -1316,7 +1316,7 @@ class Toolbox extends Component<Props, State> {
                     
                 </div>
                 <div className = 'button-group-right'>
-                    <div>
+                    <div style={{alignSelf:'center',position:'relative',marginRight:20}}>
                         <img src="/images/icon/group.png"/>
                         <span style={{position:'absolute',color:'white',top:-10}}>{this.props.count}</span>
                     </div>
