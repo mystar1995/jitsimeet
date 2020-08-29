@@ -50,6 +50,7 @@ class Subject extends Component<Props> {
 
         return (
             <div className = { `subject ${_visible ? 'visible' : ''}` }>
+                <img src='/images/icon/Settings.png'/>
                 <span className = 'subject-text'>{ _subject }</span>
                 { _showParticipantCount && <ParticipantsCount /> }
                 <ConferenceTimer />

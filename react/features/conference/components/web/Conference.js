@@ -199,7 +199,6 @@ class Conference extends AbstractConference<Props, *> {
                     <LargeVideo />
                     <KnockingParticipantList />
                     <Filmstrip filmstripOnly = { filmstripOnly } />
-                    { hideLabels || <Labels /> }
                 </div>
 
                 { filmstripOnly || _showPrejoin || _isLobbyScreenVisible || <Toolbox /> }

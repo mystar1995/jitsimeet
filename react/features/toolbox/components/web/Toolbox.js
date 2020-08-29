@@ -11,6 +11,8 @@ import {
 import { openDialog, toggleDialog } from '../../../base/dialog';
 import { isMobileBrowser } from '../../../base/environment/utils';
 import { translate } from '../../../base/i18n';
+import { getParticipantCount } from '../../../base/participants/functions';
+import ParticipantCount from '../../../conference/component/web/ParticipantsCount';
 import {
     IconChat,
     IconCodeBlock,
@@ -83,6 +85,7 @@ import MuteEveryoneButton from './MuteEveryoneButton';
 import OverflowMenuButton from './OverflowMenuButton';
 import OverflowMenuProfileItem from './OverflowMenuProfileItem';
 import ToolbarButton from './ToolbarButton';
+import ToolbarImageButton from './ToolbarImageButton';
 import VideoSettingsButton from './VideoSettingsButton';
 
 /**
@@ -1172,11 +1175,9 @@ class Toolbox extends Component<Props, State> {
      * @returns {ReactElement}
      */
     _renderAudioButton() {
-        return this._shouldShowButton('microphone')
-            ? <AudioSettingsButton
+        return <AudioSettingsButton
                 key = 'asb'
-                visible = { true } />
-            : null;
+                visible = { true } />;
     }
 
     /**
@@ -1301,64 +1302,31 @@ class Toolbox extends Component<Props, State> {
         return (
             <div className = 'toolbox-content'>
                 <div className = 'button-group-left'>
-                    { buttonsLeft.indexOf('chat') !== -1
-                        && <div className = 'toolbar-button-with-badge'>
-                            <ToolbarButton
-                                accessibilityLabel = { t('toolbar.accessibilityLabel.chat') }
-                                icon = { IconChat }
-                                onClick = { this._onToolbarToggleChat }
-                                toggled = { _chatOpen }
-                                tooltip = { t('toolbar.chat') } />
-                            <ChatCounter />
-                        </div> }
-                    { buttonsLeft.indexOf('desktop') !== -1
-                        && this._renderDesktopSharingButton() }
-                    { buttonsLeft.indexOf('raisehand') !== -1
-                        && <ToolbarButton
-                            accessibilityLabel = { t('toolbar.accessibilityLabel.raiseHand') }
-                            icon = { IconRaisedHand }
-                            onClick = { this._onToolbarToggleRaiseHand }
-                            toggled = { _raisedHand }
-                            tooltip = { t('toolbar.raiseHand') } /> }
-                    {
-                        buttonsLeft.indexOf('closedcaptions') !== -1
-                            && <ClosedCaptionButton />
-                    }
-                </div>
-                <div className = 'button-group-center'>
                     { this._renderAudioButton() }
-                    <HangupButton
-                        visible = { this._shouldShowButton('hangup') } />
                     { this._renderVideoButton() }
-                </div>
-                <div className = 'button-group-right'>
-                    { buttonsRight.indexOf('localrecording') !== -1
-                        && <LocalRecordingButton
+                    { this._renderDesktopSharingButton() }
+                    <LocalRecordingButton
                             onClick = {
                                 this._onToolbarOpenLocalRecordingInfoDialog
                             } />
-                    }
-                    { buttonsRight.indexOf('tileview') !== -1
-                        && <TileViewButton /> }
-                    { buttonsRight.indexOf('invite') !== -1
-                        && <ToolbarButton
-                            accessibilityLabel =
-                                { t('toolbar.accessibilityLabel.invite') }
-                            icon = { IconInviteMore }
-                            onClick = { this._onToolbarOpenInvite }
-                            tooltip = { t('toolbar.invite') } /> }
-                    { buttonsRight.indexOf('security') !== -1
-                        && <SecurityDialogButton customClass = 'security-toolbar-button' /> }
-                    { buttonsRight.indexOf('overflowmenu') !== -1
-                        && <OverflowMenuButton
-                            isOpen = { _overflowMenuVisible }
-                            onVisibilityChange = { this._onSetOverflowVisible }>
-                            <ul
-                                aria-label = { t(toolbarAccLabel) }
-                                className = 'overflow-menu'>
-                                { overflowMenuContent }
-                            </ul>
-                        </OverflowMenuButton> }
+                </div>
+                <div className = 'button-group-center'>
+                    <HangupButton
+                        visible = { this._shouldShowButton('hangup') } />
+                    
+                </div>
+                <div className = 'button-group-right'>
+                    <ParticipantsCount/>
+                    <div className = 'toolbar-button-with-badge'>
+                        <ToolbarImageButton
+                            accessibilityLabel = { t('toolbar.accessibilityLabel.chat') }
+                            icon = '/images/icon/message.png'
+                            onClick = { this._onToolbarToggleChat }
+                            toggled = { _chatOpen }
+                            toggledicon="/images/icon/message.png"
+                            tooltip = { t('toolbar.chat') } />
+                        <ChatCounter />
+                    </div>
                 </div>
             </div>);
     }

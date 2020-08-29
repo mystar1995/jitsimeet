@@ -76,7 +76,7 @@ class ParticipantsCount extends PureComponent<Props> {
                 <span className = 'participants-count-number'>
                     {this.props.count}
                 </span>
-                <span className = 'participants-count-icon' />
+                <img src="/images/group.png" className = 'participants-count-icon' />
             </div>
         );
     }
