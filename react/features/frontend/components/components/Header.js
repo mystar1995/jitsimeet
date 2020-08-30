@@ -20,14 +20,29 @@ class Header extends React.Component
                     <NavbarBrand className="logo" href="/">
                         <img src='./images/Logo.png'></img>
                     </NavbarBrand>
-                    <Nav className="ml-auto" navbar>
-                        <NavItem>Plans & Pricing</NavItem>
-                        <NavItem>Contact Us</NavItem>
-                        <NavItem><Link to="/signup"><span>Sign Up</span></Link></NavItem>
-                        <NavItem>
-                            <Link to="/signin"><span className="primarybtn">Sign In</span></Link>
-                        </NavItem>
-                    </Nav>
+                    {
+                        !auth.loggedin && (
+                            <Nav className="ml-auto" navbar>
+                                <NavItem>Plans & Pricing</NavItem>
+                                <NavItem>Contact Us</NavItem>
+                                <NavItem><Link to="/signup"><span>Sign Up</span></Link></NavItem>
+                                <NavItem>
+                                    <Link to="/signin"><span className="primarybtn">Sign In</span></Link>
+                                </NavItem>
+                            </Nav>
+                        )
+                    }
+
+                    {
+                        auth.loggedin && (
+                            <Nav className="ml-auto" navbar>
+                                <NavItem><Link to="/meetyx/meets"><span>Schedule meetyx</span></Link></NavItem>
+                                <NavItem>
+                                    <Link to="/meetyx"><span className="primarybtn">Let’s meetyx</span></Link>
+                                </NavItem>
+                            </Nav>
+                        )
+                    }
                     
                 </Navbar>
             </div>

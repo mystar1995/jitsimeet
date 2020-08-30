@@ -1,5 +1,6 @@
 .App
 {
+    background-color:white;
     .header
     {
         height: 80px;
@@ -345,15 +346,15 @@
             color:#CCC
         }
 
-        .viewbtn
-        {
-            margin: auto;
-            width: 30%;
-            color: #00314F;
-            font-size: 20px;
-        }
     }
     
+    .viewbtn
+    {
+        margin: auto;
+        width: 30%;
+        color: #00314F;
+        font-size: 20px;
+    }
     .navtabs
     {
         li
