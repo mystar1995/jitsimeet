@@ -12,7 +12,7 @@ let initalstate = {
 if(window.localStorage.getItem("userinfo"))
 {
     initalstate.loggedin = true;
-    let userinfo = window.localStorage.getItem("userifo");
+    let userinfo = window.localStorage.getItem("userinfo");
     initalstate.userinfo = JSON.parse(userinfo);
 }
 

@@ -24,7 +24,7 @@ class Sidebar extends React.Component
         console.log('auth',auth);
         return(
             <>
-                {/* <Userinfo userinfo = {auth.userinfo}/> */}
+                <Userinfo userinfo = {auth.userinfo}/>
                 <div className="sidebarother">
                     <Nav vertical className="sidebarcontainer">
                         <NavItem><NavLink href="/meetyx/meets">Meetyx's</NavLink></NavItem>
