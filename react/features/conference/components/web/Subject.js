@@ -52,10 +52,10 @@ class Subject extends Component<Props> {
             <div className = { `subject ${_visible ? 'visible' : ''}` }>
                 <img src='/images/icon/Settings.png'/>
                 <span className = 'subject-text'>{ _subject }</span>
+                <ConferenceTimer />
                 <div style={{marginLeft:'auto'}}>
                     <TileViewButton></TileViewButton>
                 </div>
-                <ConferenceTimer />
             </div>
         );
     }

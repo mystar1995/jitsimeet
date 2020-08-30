@@ -5,6 +5,9 @@
     display: flex;
     padding: 0px 40px;
     align-items: center;
+    position:'absolute';
+    zindex:100;
+    width:100%;
 
     &.visible {
         top: 0px;
