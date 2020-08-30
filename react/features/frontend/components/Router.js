@@ -61,7 +61,7 @@ class Router extends React.Component
 }
 
 const mapstateprops = (state) => ({
-    auth:state['feature/frontend/auth']
+    auth:state.auth?state.auth:{loggedin:false}
 })
 
 export default connect(mapstateprops)(withRouter(Router));
