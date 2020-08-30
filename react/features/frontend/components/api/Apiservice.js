@@ -18,7 +18,7 @@ export function login(user)
 export function register(user)
 {
     return new Promise((resolve,reject)=>{
-        axios.post(config.apiurl + "/api/user/register",{user:user},{httpsAgent:agent,withCredentials:true}).then(res=>{
+        axios.post(config.apiurl + "/api/user/register",{user:user},{httpsAgent:agent}).then(res=>{
             resolve(res);
         }).catch(err=>reject(err))
     })
@@ -31,7 +31,7 @@ export function updateprofile(user)
         {
             user.photo = await uploadimage(user.photo);
         }   
-        axios.post(config.apiurl + "/api/user/update",{user:user},{httpsAgent:agent,withCredentials:true}).then(res=>{
+        axios.post(config.apiurl + "/api/user/update",{user:user},{httpsAgent:agent}).then(res=>{
             resolve(res);
         }).catch(err=>reject(err))
     })
@@ -42,7 +42,7 @@ export function uploadimage(file)
     return new Promise((resolve,reject)=>{
         var formdata = new FormData();
         formdata.append('fileImg',file);
-        axios.post(config.apiurl + "/api/upload_avatar",formdata,{headers:{'Content-Type':'multipart/form-data'},httpsAgent:agent,withCredentials:true}).then(res=>{
+        axios.post(config.apiurl + "/api/upload_avatar",formdata,{headers:{'Content-Type':'multipart/form-data'},httpsAgent:agent}).then(res=>{
             resolve(res.data.file);
         }).catch(err=>reject(err))
     })
@@ -51,7 +51,7 @@ export function uploadimage(file)
 export function createconference(conferencename,id)
 {
     return new Promise((resolve,reject)=>{
-        axios.post(config.apiurl + "/api/conference/create",{name:conferencename,created_id:id},{httpsAgent:agent,withCredentials:true}).then(res=>{
+        axios.post(config.apiurl + "/api/conference/create",{name:conferencename,created_id:id},{httpsAgent:agent}).then(res=>{
             resolve(res);
         }).catch(err=>reject(err))
     })
@@ -60,7 +60,7 @@ export function createconference(conferencename,id)
 export function startmeeting(meeting,status)
 {
     return new Promise((resolve,reject)=>{
-        axios.post(config.apiurl + "/api/conference/start",{name:meeting,status:status},{httpsAgent:agent,withCredentials:true}).then(res=>{
+        axios.post(config.apiurl + "/api/conference/start",{name:meeting,status:status},{httpsAgent:agent}).then(res=>{
             resolve(res);
         }).catch(err=>reject(err));
     })
@@ -69,7 +69,7 @@ export function startmeeting(meeting,status)
 export function getconference(id)
 {
     return new Promise((resolve,reject)=>{
-        axios.get(config.apiurl + "/api/conference/get",{params:{id:id},httpsAgent:agent,withCredentials:true}).then(res=>{
+        axios.get(config.apiurl + "/api/conference/get",{params:{id:id},httpsAgent:agent}).then(res=>{
             resolve(res);
         }).catch(err=>reject(err))
     })
@@ -78,7 +78,7 @@ export function getconference(id)
 export function getmeeting(id)
 {
     return new Promise((resolve,reject)=>{
-        axios.get(config.apiurl + "/api/conference/meeting",{params:{id:id},httpsAgent:agent,withCredentials:true}).then(res=>{
+        axios.get(config.apiurl + "/api/conference/meeting",{params:{id:id},httpsAgent:agent}).then(res=>{
             resolve(res)
         }).catch(err=>reject(err))
     })
