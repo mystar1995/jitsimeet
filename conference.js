@@ -133,6 +133,7 @@ import { endpointMessageReceived } from './react/features/subtitles';
 import UIEvents from './service/UI/UIEvents';
 import * as RemoteControlEvents
     from './service/remotecontrol/RemoteControlEvents';
+import config from './config';
 
 const logger = Logger.getLogger(__filename);
 
@@ -680,6 +681,8 @@ export default {
         logger.log(`Initialized with ${tracks.length} local tracks`);
 
         this._localTracksInitialized = true;
+
+        
         con.addEventListener(JitsiConnectionEvents.CONNECTION_FAILED, _connectionFailedHandler);
         APP.connection = connection = con;
 
@@ -785,7 +788,7 @@ export default {
             roomName, initialOptions);
 
         this._initDeviceList(true);
-
+        
         return this.startConference(con, tracks);
     },
 
@@ -2529,7 +2532,9 @@ export default {
         const displayName
             = APP.store.getState()['features/base/settings'].displayName;
 
-        APP.UI.changeDisplayName('localVideoContainer', displayName);
+        let userinfo = App.store.getState()['features/frontend/auth'].userinfo;
+        APP.UI.changeLocalDisplayName('localVideoContainer',displayName);
+        this.changeLocalDisplayName(userinfo['fullname']);
     },
 
     /**
