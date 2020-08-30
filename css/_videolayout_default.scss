@@ -234,7 +234,7 @@
     object-fit: cover;
 }
 
-#sharedVideo,
+
 #etherpad,
 #localVideoWrapper video,
 #localVideoWrapper object,
@@ -246,11 +246,23 @@
 .videocontainer>object {
     position: absolute;
     left: 0;
-    top: 70px;
+    top: 0px;
     z-index: $zindex1;
     width: 100%;
-    height: calc(100% - 70px);
+    height: 100%;
 }
+
+#sharedVideo
+{
+    position: absolute;
+    left: 0;
+    top: 70px;
+    z-index: 100;
+    width: 100%;
+    height: calc(100% - 70px);   
+}
+
+
 
 #etherpad {
     text-align: center;
