@@ -347,7 +347,12 @@ export function parseURIString(uri: ?string) {
     // XXX While the components/segments of pathname are URI encoded, Jitsi Meet
     // on the client and/or server sides still don't support certain characters.
     const contextRootEndIndex = pathname.lastIndexOf('/');
-    let room = pathname.substring(contextRootEndIndex + 1) || undefined;
+    let room =  undefined;
+
+    if(pathname.split('meetyx/videocalling').length > 1)
+    {
+        let room = pathname.substring(contextRootEndIndex + 1) || undefined;        
+    }
 
     if (room) {
         const fixedRoom = _fixRoom(room);

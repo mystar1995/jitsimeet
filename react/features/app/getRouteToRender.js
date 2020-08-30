@@ -75,7 +75,7 @@ function _getMobileRoute(state): Promise<Route> {
  * @returns {Promise<Route>|undefined}
  */
 function _getWebConferenceRoute(state): ?Promise<Route> {
-    if (!isRoomValid(state['features/base/conference'].room) || !window.localStorage.getItem('userinfo')) {
+    if (!isRoomValid(state['features/base/conference'].room)) {
         return;
     }
 

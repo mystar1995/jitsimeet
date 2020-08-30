@@ -67,6 +67,7 @@ class InCallController: WKInterfaceController {
             conferenceURL = joinConferenceURL
         }
 
+        console.log(conferenceURL);
         let newRoomName = conferenceURL != nil ? conferenceURL!.components(separatedBy: "/").last : ""
       
         roomLabel.setText(newRoomName)
