@@ -353,7 +353,7 @@ export function parseURIString(uri: ?string) {
 
     if(pathname.split('meetyx/videocalling').length > 1)
     {
-        let room = pathname.substring(contextRootEndIndex + 1) || undefined;        
+        room = pathname.substring(contextRootEndIndex + 1) || undefined;        
     }
 
     if (room) {
