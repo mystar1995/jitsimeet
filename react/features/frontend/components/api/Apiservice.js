@@ -9,7 +9,7 @@ const agent = new https.Agent({
 export function login(user)
 {
     return new Promise((resolve,reject)=>{
-        axios.post(config.apiurl + "/api/user/login",user,{headers:{'content-type': 'application/json','Access-Control-Allow-Origin': '*'},httpsAgent:agent,withCredentials:true}).then(res=>{
+        axios.post(config.apiurl + "/api/user/login",user,{headers:{'content-type': 'application/json','Access-Control-Allow-Origin': '*'},httpsAgent:agent}).then(res=>{
             resolve(res);
         }).catch(err=>reject(err));
     })
