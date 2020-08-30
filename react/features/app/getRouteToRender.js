@@ -44,7 +44,7 @@ export function _getRouteToRender(stateful: Function | Object): Promise<Route> {
         return _getMobileRoute(state);
     }
 
-    return _getWebWelcomePageRoute(state);
+    return _getWebConferenceRoute(state) ||  _getWebWelcomePageRoute(state);
 }
 
 /**
