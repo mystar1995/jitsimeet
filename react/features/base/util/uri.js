@@ -349,6 +349,8 @@ export function parseURIString(uri: ?string) {
     const contextRootEndIndex = pathname.lastIndexOf('/');
     let room =  undefined;
 
+    console.log('pathname',pathname);
+
     if(pathname.split('meetyx/videocalling').length > 1)
     {
         let room = pathname.substring(contextRootEndIndex + 1) || undefined;        
