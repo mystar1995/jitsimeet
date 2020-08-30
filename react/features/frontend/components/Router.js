@@ -46,9 +46,6 @@ class Router extends React.Component
                             <Route exact path="/meetyx/recording">
                                 <MainLayout><Recording/></MainLayout>
                             </Route>
-                            <Route exact path="/meetyx/videocalling/:routename">
-                                <VideoCalling/>
-                            </Route>
                             <Route exact path="/meetyx/profile">
                                 <Profile/>
                             </Route>
@@ -64,7 +61,7 @@ class Router extends React.Component
 }
 
 const mapstateprops = (state) => ({
-    auth:state.auth?state.auth:{loggedin:false}
+    auth:state.auth['feature/frontend/auth']
 })
 
 export default connect(mapstateprops)(withRouter(Router));
