@@ -45,7 +45,7 @@ class Sidebar extends React.Component
 }
 
 const mapstatetoprops = (state) => ({
-    auth:state.auth['feature/frontend/auth']
+    auth:state['feature/frontend/auth']
 })
 
 export default connect(mapstatetoprops)(Sidebar);

@@ -86,7 +86,7 @@ class Signup extends React.Component
 }
 
 const mapstatetoprops = (state) => ({
-    auth:state.auth?state.auth:{}
+    auth:state['feature/frontend/auth']
 })
 
 export default connect(mapstatetoprops)(Signup);
