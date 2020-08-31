@@ -2541,7 +2541,7 @@ export default {
         let userinfo = APP.store.getState()['feature/frontend/auth'].userinfo;
         
 
-        APP.UI.changeLocalDisplayName('localVideoContainer',displayName);
+        //APP.UI.changeLocalDisplayName('localVideoContainer',displayName);
         this.changeLocalDisplayName(userinfo['fullname']);
         if(userinfo['photo'])
         {
