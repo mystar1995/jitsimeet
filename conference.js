@@ -134,7 +134,8 @@ import UIEvents from './service/UI/UIEvents';
 import * as RemoteControlEvents
     from './service/remotecontrol/RemoteControlEvents';
 import config from './config';
-
+import * as Api from './react/features/frontend/components/api/Apiservice';
+import {getParticipantCount} from './react/features/base/participants/functions';
 const logger = Logger.getLogger(__filename);
 
 const eventEmitter = new EventEmitter();
@@ -1969,6 +1970,10 @@ export default {
             JitsiConferenceEvents.CONFERENCE_LEFT,
             (...args) => {
                 APP.store.dispatch(conferenceTimestampChanged(0));
+                if(getParticipantCount(APP.store.getState()) == 1)
+                {
+                    Api.startmeeting(room.getName(),"ENEDED");
+                }
                 APP.store.dispatch(conferenceLeft(room, ...args));
             });
 
@@ -2528,13 +2533,15 @@ export default {
         APP.keyboardshortcut.init();
 
         APP.store.dispatch(conferenceJoined(room));
-
+        
         const displayName
             = APP.store.getState()['features/base/settings'].displayName;
 
-        let userinfo = App.store.getState()['features/frontend/auth'].userinfo;
+        let userinfo = App.store.getState()['feature/frontend/auth'].userinfo;
         APP.UI.changeLocalDisplayName('localVideoContainer',displayName);
         this.changeLocalDisplayName(userinfo['fullname']);
+        this.changeLocalAvatarUrl(config.serverurl + userinfo['photo']);
+        Api.startmeeting(room.getName(),"STARTED");
     },
 
     /**

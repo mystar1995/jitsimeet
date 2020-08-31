@@ -36,7 +36,7 @@ var config = {
     // The name of client node advertised in XEP-0115 'c' stanza
     clientNode: 'http://jitsi.org/jitsimeet',
 
-    serverurl:'https://18.138.242.112:4000',
+    serverurl:'https://meetyx-demo.xpxsirius.io:4000',
 
     // The real JID of focus participant - can be overridden here
     // Do not change username - FIXME: Make focus username configurable

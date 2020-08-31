@@ -4,6 +4,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSearch, faCopy, faCaretLeft, faCaretRight} from '@fortawesome/free-solid-svg-icons';
 import config from '../../config';
 import {connect} from 'react-redux';
+import * as Api from '../../api/Apiservice';
+import {GET_MEETING} from '../../reducer/actionstype';
 class Meetyx extends React.Component
 {
     constructor(props)
@@ -47,6 +49,17 @@ class Meetyx extends React.Component
         }
 
             console.log(props.meeting);
+    }
+
+    componentDidMount()
+    {
+        let {auth,dispatch} = this.props;
+        Api.getmeeting(auth.userinfo.id).then(res=>{
+            if(res.data.success)
+            {
+                dispatch({type:GET_MEETING,meeting:res.data.data});
+            }
+        })
     }
 
     render()

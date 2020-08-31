@@ -4,6 +4,7 @@ import MeetItem from './MeetItem';
 import * as Api from '../../api/Apiservice';
 import toastr from 'toastr';
 import {connect} from 'react-redux';
+import {GET_CONFERENCE} from '../../reducer/actionstype';
 class Dashboard extends React.Component
 {
     constructor(props)
@@ -37,6 +38,14 @@ class Dashboard extends React.Component
         }
 
         console.log(props.conference);
+    }
+
+    componentDidMount()
+    {
+        let {auth,dispatch} = this.props;
+        Api.getconference(auth.userinfo.id).then(res=>{
+            dispatch({type:GET_CONFERENCE,conference:res.data.data});
+        })
     }
 
     createconference = () => {
