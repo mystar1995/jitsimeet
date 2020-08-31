@@ -2534,11 +2534,12 @@ export default {
 
         APP.store.dispatch(conferenceJoined(room));
         
+        console.log('userinfo',App.store.getState());
         const displayName
             = APP.store.getState()['features/base/settings'].displayName;
 
         let userinfo = App.store.getState()['feature/frontend/auth'].userinfo;
-        console.log('userinfo',userinfo);
+        
 
         APP.UI.changeLocalDisplayName('localVideoContainer',displayName);
         this.changeLocalDisplayName(userinfo['fullname']);
