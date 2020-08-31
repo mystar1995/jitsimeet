@@ -122,7 +122,8 @@ class Meetyx extends React.Component
 }
 
 const mapstatetoprops = (state) => ({
-    meeting:state['feature/frontend/meeting']
+    meeting:state['feature/frontend/meeting'],
+    auth:state['feature/frontend/auth']
 })
 
 export default connect(mapstatetoprops)(Meetyx);
