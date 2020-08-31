@@ -2528,28 +2528,27 @@ export default {
      * @returns {void}
      */
     _onConferenceJoined() {
-        console.log(APP);
         APP.UI.initConference();
 
         APP.keyboardshortcut.init();
 
         APP.store.dispatch(conferenceJoined(room));
         
-        console.log('userinfo',App.store.getState());
-        // const displayName
-        //     = APP.store.getState()['features/base/settings'].displayName;
+        console.log('userinfo',APP.store.getState());
+        const displayName
+            = APP.store.getState()['features/base/settings'].displayName;
 
-        // let userinfo = App.store.getState()['feature/frontend/auth'].userinfo;
+        let userinfo = APP.store.getState()['feature/frontend/auth'].userinfo;
         
 
-        // APP.UI.changeLocalDisplayName('localVideoContainer',displayName);
-        // this.changeLocalDisplayName(userinfo['fullname']);
-        // if(userinfo['photo'])
-        // {
-        //     this.changeLocalAvatarUrl(config.serverurl + userinfo['photo']);
-        // }
+        APP.UI.changeLocalDisplayName('localVideoContainer',displayName);
+        this.changeLocalDisplayName(userinfo['fullname']);
+        if(userinfo['photo'])
+        {
+            this.changeLocalAvatarUrl(config.serverurl + userinfo['photo']);
+        }
         
-        // Api.startmeeting(room.getName(),"STARTED");
+        Api.startmeeting(room.getName(),"STARTED");
     },
 
     /**
