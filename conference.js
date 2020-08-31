@@ -2528,9 +2528,10 @@ export default {
      * @returns {void}
      */
     _onConferenceJoined() {
-        // APP.UI.initConference();
+        console.log(APP);
+        APP.UI.initConference();
 
-        // APP.keyboardshortcut.init();
+        APP.keyboardshortcut.init();
 
         // APP.store.dispatch(conferenceJoined(room));
         
