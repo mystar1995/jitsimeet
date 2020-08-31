@@ -97,10 +97,6 @@
         background-color: $auiDialogContentBg;
         color: $auiDialogColor;
     }
-
-    .form-control:not(:last-child) {
-        border-bottom: 1px solid $auiBorderColor;
-    }
 }
 
 @media all and (max-width: 420px) {
