@@ -147,7 +147,7 @@ class Profile extends React.Component
             <Form ref={this.form} className="profilecontent" onSubmit={this.handlesubmit}>
                 <Row>
                     <Col lg={3} md={4} sm={6} xs={12} style={{textAlign:'center'}}>
-                        <div style={{width:'140px',height:'140px',margin:'auto',position:'relative'}}>
+                        <div style={{width:'140px',height:'140px',margin:'auto',position:'relative',overflow:'hidden'}}>
                             <img src={this.getimage()} style={{width:'100%',cursor:'pointer'}}/>
                             {
                                 this.state.edit && (

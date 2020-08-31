@@ -83,68 +83,68 @@
         {
             margin-left: auto;
         }
+    }
 
-        h1
-        {
-            font-size: 44px;
-            font-weight: bold;
-            line-height: 60px;
-            color: white;
-        }
+    h1
+    {
+        font-size: 44px;
+        font-weight: bold;
+        line-height: 60px;
+        color: white;
+    }
 
-        h4
-        {
-            font-size: 24px;
-            line-height: 33px;
-            color: #00314F;
-            font-weight: bold;
-        }
+    h4
+    {
+        font-size: 24px;
+        line-height: 33px;
+        color: #00314F;
+        font-weight: bold;
+    }
 
-        p
-        {
-            font-size: 20px;
-            line-height: 27px;
-            color: white;
-        }
-        .checkboxtitle
-        {
-            color: white;
-            margin-left: 5px;
-            font-size: 12px;
-            line-height: 16px;
-        }
+    p
+    {
+        font-size: 20px;
+        line-height: 27px;
+        color: white;
+    }
+    .checkboxtitle
+    {
+        color: white;
+        margin-left: 5px;
+        font-size: 12px;
+        line-height: 16px;
+    }
 
-        .input
-        {
-            width:100%;
-            color: white;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid #CCCCCC;
-            padding: 5px 10px;
-        }
+    .input
+    {
+        width:100%;
+        color: white;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #CCCCCC;
+        padding: 5px 10px;
+    }
 
-        input:-webkit-autofill,
-        input:-webkit-autofill:hover, 
-        input:-webkit-autofill:focus, 
-        input:-webkit-autofill:active  {
-            background: transparent !important;
-            -webkit-appearance: none;
-        }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active  {
+        background: transparent !important;
+        -webkit-appearance: none;
+    }
 
-        .input:focus{
-            background:transparent;
-            border: none;
-            border-bottom: 1px solid #2CDDE9;
-            color: white;
-        }
+    .input:focus{
+        background:transparent;
+        border: none;
+        border-bottom: 1px solid #2CDDE9;
+        color: white;
+    }
 
 
-        .input::placeholder
-        {
-            color: white;
-            text-align:center
-        }
+    .input::placeholder
+    {
+        color: white;
+        text-align:center
     }
 
     .primarybtn
