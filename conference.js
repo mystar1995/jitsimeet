@@ -2533,9 +2533,9 @@ export default {
 
         APP.keyboardshortcut.init();
 
-        // APP.store.dispatch(conferenceJoined(room));
+        APP.store.dispatch(conferenceJoined(room));
         
-        // console.log('userinfo',App.store.getState());
+        console.log('userinfo',App.store.getState());
         // const displayName
         //     = APP.store.getState()['features/base/settings'].displayName;
 
