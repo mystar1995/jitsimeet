@@ -2535,20 +2535,20 @@ export default {
         APP.store.dispatch(conferenceJoined(room));
         
         console.log('userinfo',App.store.getState());
-        // const displayName
-        //     = APP.store.getState()['features/base/settings'].displayName;
+        const displayName
+            = APP.store.getState()['features/base/settings'].displayName;
 
-        // let userinfo = App.store.getState()['feature/frontend/auth'].userinfo;
+        let userinfo = App.store.getState()['feature/frontend/auth'].userinfo;
         
 
-        // APP.UI.changeLocalDisplayName('localVideoContainer',displayName);
-        // this.changeLocalDisplayName(userinfo['fullname']);
-        // if(userinfo['photo'])
-        // {
-        //     this.changeLocalAvatarUrl(config.serverurl + userinfo['photo']);
-        // }
+        APP.UI.changeLocalDisplayName('localVideoContainer',displayName);
+        this.changeLocalDisplayName(userinfo['fullname']);
+        if(userinfo['photo'])
+        {
+            this.changeLocalAvatarUrl(config.serverurl + userinfo['photo']);
+        }
         
-        // Api.startmeeting(room.getName(),"STARTED");
+        Api.startmeeting(room.getName(),"STARTED");
     },
 
     /**
