@@ -2538,9 +2538,15 @@ export default {
             = APP.store.getState()['features/base/settings'].displayName;
 
         let userinfo = App.store.getState()['feature/frontend/auth'].userinfo;
+        console.log('userinfo',userinfo);
+
         APP.UI.changeLocalDisplayName('localVideoContainer',displayName);
         this.changeLocalDisplayName(userinfo['fullname']);
-        this.changeLocalAvatarUrl(config.serverurl + userinfo['photo']);
+        if(userinfo['photo'])
+        {
+            this.changeLocalAvatarUrl(config.serverurl + userinfo['photo']);
+        }
+        
         Api.startmeeting(room.getName(),"STARTED");
     },
 
