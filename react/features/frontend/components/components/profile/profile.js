@@ -84,7 +84,7 @@ class Profile extends React.Component
             return config.apiurl + auth.userinfo.photo;
         }   
 
-        return './images/profile/profile1.png';
+        return '/images/profile/profile1.png';
     }
 
     handlesubmit = (e) => {

@@ -18,7 +18,7 @@ class Header extends React.Component
             <div className="header">
                 <Navbar light expand="md" className="navbar-style">
                     <NavbarBrand className="logo" href="/">
-                        <img src='./images/Logo.png'></img>
+                        <img src='/images/Logo.png'></img>
                     </NavbarBrand>
                     {
                         !auth.loggedin && (

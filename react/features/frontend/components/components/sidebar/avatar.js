@@ -25,7 +25,7 @@ class Avatar extends React.Component
         return (
             <div className="avatar_container">
                 <div className="avatar" onClick={()=>window.location.href = "/meetyx/profile"}>
-                    <img src={this.props.userinfo.photo?config.apiurl + this.props.userinfo.photo:'./images/profile/profile2.png'}></img>
+                    <img src={this.props.userinfo.photo?config.apiurl + this.props.userinfo.photo:'/images/profile/profile2.png'}></img>
                 </div>
                 <h3>Hi {this.props.userinfo.fullname}!</h3>
                 <FontAwesomeIcon icon={faCaretDown} style={{marginTop:'10px',color:this.state.selected?'#2CDDE9':'#00314F',cursor:'pointer'}} onClick={this.select}></FontAwesomeIcon>

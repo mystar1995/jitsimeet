@@ -14,7 +14,7 @@ class Sirius extends React.Component
                 <Col lg={6} md={6} sm={12} xs={12}>
                     <Row>
                         <Col lg={2} md={4} sm={4} xs={4}>
-                            <img src='./images/icon/weixin.png' style={{width:'100%'}}/>
+                            <img src='/images/icon/weixin.png' style={{width:'100%'}}/>
                         </Col>
                         <Col lg={10} md={8} sm={8} xs={8}>
                             <h6 className="titlecontent">Sirius address</h6>
@@ -26,7 +26,7 @@ class Sirius extends React.Component
                 <Col lg={6} md={6} sm={12} xs={12}>
                     <Row>
                         <Col lg={2} md={4} sm={4} xs={4}>
-                            <img src='./images/icon/weixin.png' style={{width:'100%'}}/>
+                            <img src='/images/icon/weixin.png' style={{width:'100%'}}/>
                         </Col>
                         <Col lg={10} md={8} sm={8} xs={8}>
                             <h6 className="titlecontent">Public key</h6>
