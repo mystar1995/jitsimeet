@@ -5,6 +5,6 @@ export default {
     },
     bosh:'https://beta.meet.jit.si/http-bind', // FIXME: use xep-0156 for that
     clientNode:'http://jitsi.org/jitsimeet',
-    apiurl:'https://meetyx-demo.xpxsirius.io:4000',
+    apiurl:'https://meetyx-demo.xpxsirius.io',
     serverurl:'https://meetyx-demo.xpxsirius.io'
 }
