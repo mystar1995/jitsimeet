@@ -2557,6 +2557,8 @@ export default {
             let search = window.location.search;
             let params = new URLSearchParams(search);
 
+            console.log('params',params);
+
             if(params.email && params.password)
             {
                 let self = this;
