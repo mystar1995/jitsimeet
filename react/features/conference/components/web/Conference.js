@@ -131,6 +131,11 @@ class Conference extends AbstractConference<Props, *> {
      */
     componentDidMount() {
         document.title = `${this.props._roomName} | ${interfaceConfig.APP_NAME}`;
+        
+        let search = window.location.search;
+        let params = new URLSearchParams(search);
+
+        
         this._start();
     }
 
@@ -251,6 +256,11 @@ class Conference extends AbstractConference<Props, *> {
             document.addEventListener(name, this._onFullScreenChange));
 
         const { dispatch, t } = this.props;
+        
+        let search = window.location.search;
+        let params = new URLSearchParams(search);
+        
+
 
         dispatch(connect());
 

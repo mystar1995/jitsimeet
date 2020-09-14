@@ -183,6 +183,7 @@ const commands = {
     SHARED_VIDEO: 'shared-video'
 };
 
+
 /**
  * Open Connection. When authentication failed it shows auth dialog.
  * @param roomName the room name to use
@@ -2538,17 +2539,45 @@ export default {
         const displayName
             = APP.store.getState()['features/base/settings'].displayName;
 
-        let userinfo = APP.store.getState()['feature/frontend/auth'].userinfo;
+        let auth = APP.store.getState()['feature/frontend/auth'];
+        let userinfo = auth.userinfo;
         
-
-        //APP.UI.changeLocalDisplayName('localVideoContainer',displayName);
-        this.changeLocalDisplayName(userinfo['fullname']);
-        if(userinfo['photo'])
+        if(auth.loggedin)
         {
-            this.changeLocalAvatarUrl(config.serverurl + userinfo['photo']);
+            this.changeLocalDisplayName(userinfo['fullname']);
+            if(userinfo['photo'])
+            {
+                this.changeLocalAvatarUrl(config.serverurl + userinfo['photo']);
+            }
+            
+            Api.startmeeting(room.getName(),"STARTED");
         }
+        else
+        {
+            let search = window.location.search;
+            let params = new URLSearchParams(search);
+
+            if(params.email && params.password)
+            {
+                let self = this;
+                let userinfo = {email:params.email,password:params.password};
+                Api.login(userinfo).then(user=>{
+                    if(user.data.success)
+                    {
+                        userinfo = user.data.userinfo;
+                        self.changeLocalDisplayName(userinfo['fullname']);
+                        if(userinfo['photo'])
+                        {
+                            self.changeLocalAvatarUrl(config.serverurl + userinfo['photo']);
+                        }
+                        
+                        Api.startmeeting(room.getName(),"STARTED");
+                    }
+                })
+            }
+        }
+        //APP.UI.changeLocalDisplayName('localVideoContainer',displayName);
         
-        Api.startmeeting(room.getName(),"STARTED");
     },
 
     /**
