@@ -2554,7 +2554,7 @@ export default {
         }
         else
         {
-            let location = window.location.search;
+            let search = window.location.search;
             let params = new URLSearchParams(search);
 
             console.log('params',params);
@@ -2566,9 +2566,9 @@ export default {
                 {
                     this.changeLocalAvatarUrl(config.serverurl + params.photo);
                 }
-                
-                Api.startmeeting(room.getName(),"STARTED");
             }
+
+            Api.startmeeting(room.getName(),"STARTED");
         }
         //APP.UI.changeLocalDisplayName('localVideoContainer',displayName);
         
