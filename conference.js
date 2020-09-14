@@ -2554,6 +2554,7 @@ export default {
         }
         else
         {
+            console.log('location',window.location);
             let search = window.location.search;
             let params = new URLSearchParams(search);
 
