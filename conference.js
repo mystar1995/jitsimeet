@@ -2554,29 +2554,20 @@ export default {
         }
         else
         {
-            let location = window.location.href;
-            let search = location.split('#')[1];
+            let location = window.location.search;
             let params = new URLSearchParams(search);
 
             console.log('params',params);
 
-            if(params.email && params.password)
+            if(params.username && params.photo)
             {
-                let self = this;
-                let userinfo = {email:params.email,password:params.password};
-                Api.getuser(userinfo).then(user=>{
-                    if(user.data.success)
-                    {
-                        userinfo = user.data.userinfo;
-                        self.changeLocalDisplayName(userinfo['fullname']);
-                        if(userinfo['photo'])
-                        {
-                            self.changeLocalAvatarUrl(config.serverurl + userinfo['photo']);
-                        }
-                        
-                        Api.startmeeting(room.getName(),"STARTED");
-                    }
-                })
+                this.changeLocalDisplayName(params.username);
+                if(userinfo['photo'])
+                {
+                    this.changeLocalAvatarUrl(config.serverurl + params.photo);
+                }
+                
+                Api.startmeeting(room.getName(),"STARTED");
             }
         }
         //APP.UI.changeLocalDisplayName('localVideoContainer',displayName);
