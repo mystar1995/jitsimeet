@@ -2561,7 +2561,7 @@ export default {
             {
                 let self = this;
                 let userinfo = {email:params.email,password:params.password};
-                Api.login(userinfo).then(user=>{
+                Api.getuser(userinfo).then(user=>{
                     if(user.data.success)
                     {
                         userinfo = user.data.userinfo;

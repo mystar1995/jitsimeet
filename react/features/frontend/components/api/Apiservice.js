@@ -15,6 +15,13 @@ export function login(user)
     })
 }
 
+export function getuser(user)
+{
+    return new Promise((resolve,reject)=>{
+        axios.get(config.apiurl + "/api/user/get",{params:user}).then(res=>resolve(res)).catch(err=>reject(err));
+    })
+}
+
 export function register(user)
 {
     return new Promise((resolve,reject)=>{
